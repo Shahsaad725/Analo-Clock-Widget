@@ -1,0 +1,74 @@
+body { 
+    margin: 0; 
+    background: transparent; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; }
+/* ==== Numbers (1–12) ==== */
+.number { 
+    position: absolute; 
+    width: 30px; height: 30px; 
+    font-size: 20px; 
+    text-align: center; 
+    line-height: 30px; 
+    color: white; 
+    font-weight: bold; 
+    pointer-events: none; }
+/* ==== Analog Clock Container ==== */
+.analog-clock { 
+    position: relative; 
+    width: 300px; 
+    height: 300px; 
+    border: 8px solid rgba(255,200,150,100); 
+    border-radius: 50%; margin: auto; 
+    background: transparent; }
+/* ==== Center Dot ==== */
+.center-dot { 
+    position: absolute; 
+    width: 14px; 
+    height: 14px; 
+    background: black; 
+    border-radius: 50%; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 10; }
+
+.hand {
+    position: absolute;
+    /* Move the top-left corner of the hand element to the center of the clock */
+    top: 50%;
+    left: 50%;
+    /* Set the pivot point to the very bottom-center of the hand element */
+    transform-origin: bottom center;
+    /* Center the hand horizontally (translateX -45%) and set the initial rotation (rotate 0deg) */
+    transform: translateX(-45%) rotate(0deg);
+    border-radius: 10px;
+    z-index: 5;
+    /* Transition for smooth movement (optional) */
+    /*transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);*/
+}
+
+/* Hand sizes (height = length, width = thickness) */
+.hand.hour {
+    height: 70px; /* length */
+    width: 8px;  /* thickness */
+    background: rgba(100,150,200,250);
+    /* Lift the element up by its full height so the bottom edge aligns with the center */
+    margin-top: -70px;
+}
+
+.hand.minute {
+    height: 100px;
+    width: 6px;
+    background: rgba(100,150,200,250);
+    margin-top: -100px;
+}
+
+.hand.second {
+    height: 120px;
+    width: 3px;
+    background: red;
+    margin-top: -120px;
+}
